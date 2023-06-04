@@ -1,0 +1,66 @@
+package AWTinjava;
+import java.awt.*;
+import java.awt.event.*;
+import javax.swing.*;
+
+public class PrimeChecker extends JFrame implements ActionListener {
+    private JLabel inputLabel, outputLabel;
+    private JTextField inputField;
+    private JButton findButton;
+
+    public PrimeChecker() {
+        super("Prime Checker");
+
+        // Set layout
+        setLayout(new FlowLayout());
+
+        // Create and add input label
+        inputLabel = new JLabel("Input:");
+        add(inputLabel);
+
+        // Create and add input field
+        inputField = new JTextField(10);
+        add(inputField);
+
+        // Create and add find button
+        findButton = new JButton("Find");
+        findButton.addActionListener(this);
+        add(findButton);
+
+        // Create and add output label
+        outputLabel = new JLabel("Output:");
+        add(outputLabel);
+
+        // Set frame properties
+        setSize(300, 100);
+        setVisible(true);
+        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+    }
+
+    public void actionPerformed(ActionEvent e) {
+        // Get input value
+        String inputString = inputField.getText();
+        int inputValue = Integer.parseInt(inputString);
+
+        // Determine if input value is prime or composite
+        boolean isPrime = true;
+        for (int i = 2; i <= inputValue / 2; i++) {
+            if (inputValue % i == 0) {
+                isPrime = false;
+                break;
+            }
+        }
+
+        // Update output label with result
+        if (isPrime) {
+            outputLabel.setText("Output: " + inputValue + " is prime.");
+        } else {
+            outputLabel.setText("Output: " + inputValue + " is composite.");
+        }
+    }
+
+    public static void main(String[] args) {
+        new PrimeChecker();
+    }
+}
+
