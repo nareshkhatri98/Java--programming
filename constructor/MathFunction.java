@@ -1,6 +1,6 @@
 package constructor;
 
-blic class MathFunction {
+public class MathFunction {
     public static void main(String[] args) {
         double x=25;
         double y=5;
@@ -12,4 +12,3 @@ blic class MathFunction {
         System.out.println("random number:"+Math.random());
     }
 }
-pu

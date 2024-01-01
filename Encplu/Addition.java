@@ -20,4 +20,9 @@ public class Addition {
    {
        return breadth;
    }
+
+    public static void main(String[] args) {
+
+    }
+
 }
